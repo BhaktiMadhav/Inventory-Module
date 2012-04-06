@@ -1,0 +1,58 @@
+<%@ page language="java" import="java.sql.*" %>
+<%
+	
+	String p1=request.getParameter("name");
+	String name=p1.trim();
+
+	String p2=request.getParameter("address");
+	String address=p2.trim();
+
+	String p3=request.getParameter("region");
+	String region=p3.trim();
+
+	String p4=request.getParameter("contact");
+	String contact=p4.trim();
+
+	try
+	{
+		String driver = "com.mysql.jdbc.Driver";
+		Class.forName(driver).newInstance();
+	
+		Connection con=null;
+		Statement st=null;
+		ResultSet res=null;
+		PreparedStatement ps = null;
+
+		con =DriverManager.getConnection("jdbc:mysql://localhost:3306/db","root","39414247");
+
+		String sql;
+		sql = "INSERT INTO vendor(name,address,region,mobile_no) VALUES (?,?,?,?)";
+
+		ps = con.prepareStatement(sql);
+		st=con.createStatement();
+
+		ps.setString(1,name);
+		ps.setString(2,address);
+		ps.setString(3,region);
+		ps.setString(4,contact);
+		
+		ps.executeUpdate();
+		out.println("Record Entered Successfully !");
+
+		res.close();
+		st.close();
+		con.close(); 
+		ps.close();
+	}
+
+	catch(Exception e)
+	{
+		out.println(e);
+	}
+       	
+%>
+
+
+
+
+
