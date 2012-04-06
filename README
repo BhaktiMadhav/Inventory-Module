@@ -1,1 +1,22 @@
-Hello Every1 !!!
+Steps to pull and push and commit
+
+$ git clone (link after login)
+$cd Inventory-Module/
+$ ls      //to search 
+
+$ git pull origin master
+//then enter ur paraphrase
+
+$ git status
+
+$ git add (file name)
+
+$ git commit
+
+$ git pull origin master
+//then enter ur paraphrase
+
+$ git push origin master
+//then enter ur paraphrase
+
+
